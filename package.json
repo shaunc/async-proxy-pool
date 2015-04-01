@@ -1,0 +1,14 @@
+{
+  "name": "async-proxy-pool",
+  "version": "0.0.1",
+  "description": "Asynchronous resource pool, allowing parallel use of resource proxies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Shaun Cutts <schematist@factfiber.com> (http://factfiber.com)",
+  "license": "ISC",
+  "dependencies": {
+    "async-pool": "file:../../../../../../var/folders/mz/1g2drwbd74n_qg40stwl36nm0000gn/T/npm-25713-1c11490e/git-cache-2287ab2cd9d1/5e2453901e8071bf007868f87720be47a3f4b3ce"
+  }
+}
