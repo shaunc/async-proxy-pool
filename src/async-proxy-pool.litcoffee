@@ -35,4 +35,6 @@ which client we use.
                 obj[attr]
 
       share: ()->
+        if !@resources()
+          throw new Error('AsyncProxyPool is closed.')
         return new @_Proxy()
