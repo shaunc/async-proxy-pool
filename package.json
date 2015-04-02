@@ -4,16 +4,26 @@
   "description": "Asynchronous resource pool, allowing parallel use of resource proxies.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shaunc/async-pool"
+    "url": "https://github.com/shaunc/async-pool.git"
   },
   "readme": "README.md",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "npm run prepublish && mocha --recursive -u bdd --compilers coffee:coffee-script,litcoffee:coffee-script/register",
+    "prepublish": "coffee -o lib -c src/*.litcoffee"
   },
   "author": "Shaun Cutts <schematist@factfiber.com> (http://factfiber.com)",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaunc/async-pool/issues"
+  },
   "dependencies": {
-    "async-pool": "^0.1.0"
+    "async-pool": "^0.1.0",
+    "bluebird": "^2.9.21"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "coffee-script": "^1.9.1",
+    "mocha": "^2.2.1"
   }
 }

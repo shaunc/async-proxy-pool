@@ -16,25 +16,27 @@ calls could return data from different resources. Intended for use for
 accessing values such as query connection strings, for which it doesn't matter
 which client we use.
 
-    AsyncPool = require 'AsyncPool'
+    Promise = require 'bluebird'
+    AsyncPool = require 'async-pool'
     
     class AsyncProxyPool extends AsyncPool
       constructor: (resources, methods, dataAttributes = [])->
         super(resources)
         @_Proxy = class Proxy
         self = this
-        for method in methods
+        for method in methods ? []
           Proxy.prototype[method] = ()-> 
             args = arguments
             return Promise.using self.use(), (obj)->
               obj[method].apply(obj, args)
         for attr in dataAttributes
-          Proxy.defineProperty
+          Object.defineProperty Proxy.prototype, attr,
             get: ->
               Promise.using self.use(), (obj)->
                 obj[attr]
 
       share: ()->
-        if !@resources()
-          throw new Error('AsyncProxyPool is closed.')
-        return new @_Proxy()
+        @_checkCloseOnUse()
+        Promise.resolve(new @_Proxy())
+
+    module.exports = AsyncProxyPool
