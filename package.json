@@ -1,6 +1,6 @@
 {
   "name": "async-proxy-pool",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Asynchronous resource pool, allowing parallel use of resource proxies.",
   "repository": {
     "type": "git",
