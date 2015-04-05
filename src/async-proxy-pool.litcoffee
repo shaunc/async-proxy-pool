@@ -18,6 +18,7 @@ which client we use.
 
     Promise = require 'bluebird'
     AsyncPool = require 'async-pool'
+    log = (require 'logger-facade-nodejs').getLogger('async-proxy-pool')
     
     class AsyncProxyPool extends AsyncPool
       constructor: (resources, methods, dataAttributes = [])->
