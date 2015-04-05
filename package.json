@@ -18,7 +18,7 @@
     "url": "https://github.com/shaunc/async-pool/issues"
   },
   "dependencies": {
-    "async-pool": "^0.2.3",
+    "async-pool": "^0.2.5",
     "bluebird": "^2.9.21",
     "logger-facade-nodejs": "0.0.3"
   },
